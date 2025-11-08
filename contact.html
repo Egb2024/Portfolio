@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contactez-moi</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <!-- ✅ SDK EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      // Initialiser EmailJS (remplace par ton USER_ID)
+      (function () {
+        emailjs.init("7zYDwzO2bBxpMQfJY"); // ←←← REMPLACE PAR TON USER_ID
+      })();
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#00B8D4",
+              "background-light": "#ffffff",
+              "background-dark": "#121212",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .form-input::placeholder {
+        color: inherit;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body class="font-display bg-background-dark text-white">
+    <div class="relative flex min-h-screen w-full flex-col">
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-800 px-2 sm:px-6 py-4">
+        <div class="flex items-center gap-4 text-white">
+          <div class="size-6 text-primary">
+            <div class="h-6 w-6">
+              <img
+                src="https://res.cloudinary.com/doq50mquo/image/upload/v1762626877/Black_White_Yellow_Simple_Initial_Name_Logo_awrro2.png"
+                alt="Dorcas Egbende"
+                class="h-full w-full object-contain"
+              />
+            </div>
+          </div>
+          <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+            <a class="text-sm font-medium leading-normal text-gray-300 hover:text-primary" href="index.html">Dorcas Egbende</a>
+          </h2>
+        </div>
+        <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+          <div class="flex items-center gap-9">
+            <a class="text-sm font-medium leading-normal text-gray-300 hover:text-primary" href="project.html">Mes Projets</a>
+            <a class="text-sm font-medium leading-normal text-gray-300 hover:text-primary" href="about.html">À Propos de moi</a>
+            <a class="text-sm font-medium leading-normal text-gray-300 hover:text-primary" href="service.html">Mes Services</a>
+          </div>
+          <a
+            href="contact.html"
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-black text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors no-underline"
+          >
+            <span class="truncate">Contactez-moi</span>
+          </a>
+          <div class="flex items-center">
+            <button
+              id="theme-toggle-desktop"
+              class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark"
+              role="switch"
+              aria-label="Basculer le mode sombre/clair"
+            >
+              <span class="sr-only">Use dark mode</span>
+              <span
+                aria-hidden="true"
+                class="pointer-events-none inline-block h-5 w-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+              ></span>
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 md:hidden">
+          <button
+            id="theme-toggle-mobile"
+            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark"
+            role="switch"
+            aria-label="Basculer le mode sombre/clair"
+          >
+            <span class="sr-only">Use dark mode</span>
+            <span
+              aria-hidden="true"
+              class="pointer-events-none inline-block h-5 w-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+            ></span>
+          </button>
+          <span id="burger-icon" class="material-symbols-outlined text-gray-300">menu</span>
+        </div>
+      </header>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-background-dark px-4 py-6 border-t border-gray-800">
+        <div class="flex flex-col gap-4 text-white">
+          <a class="text-base font-medium hover:text-primary" href="index.html">Mes Projets</a>
+          <a class="text-base font-medium hover:text-primary" href="index.html">À Propos de moi</a>
+          <a class="text-base font-medium hover:text-primary" href="index.html">Mes Services</a>
+          <a
+            href="contact.html"
+            class="mt-2 w-full py-2.5 rounded-lg bg-primary text-black font-bold text-center hover:bg-primary/90 transition-colors no-underline"
+          >
+            Contactez-moi
+          </a>
+        </div>
+      </div>
+
+      <main class="flex-grow">
+        <div class="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
+          <div class="grid grid-cols-1 gap-16 lg:grid-cols-5">
+            <div class="lg:col-span-3">
+              <div class="flex flex-col gap-4 mb-8">
+                <h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tighter relative pb-2">
+                  Contactez-moi<span class="absolute bottom-0 left-0 h-1 w-20 bg-primary"></span>
+                </h1>
+                <p class="text-lg text-gray-400">
+                  N'hésitez pas à me contacter pour toute collaboration, question ou simplement pour discuter.
+                </p>
+              </div>
+
+              <!-- ✅ Formulaire avec id="contact-form" -->
+              <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <label class="flex flex-col">
+                    <p class="text-base font-medium leading-normal pb-2">Nom</p>
+                    <input
+                      name="user_name"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-700 bg-background-dark focus:border-primary h-14 placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal transition-all"
+                      placeholder="Votre nom"
+                      type="text"
+                      required
+                    />
+                  </label>
+                  <label class="flex flex-col">
+                    <p class="text-base font-medium leading-normal pb-2">Email</p>
+                    <input
+                      name="user_email"
+                      class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-700 bg-background-dark focus:border-primary h-14 placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal transition-all"
+                      placeholder="Votre adresse email"
+                      type="email"
+                      required
+                    />
+                  </label>
+                </div>
+                <label class="flex flex-col">
+                  <p class="text-base font-medium leading-normal pb-2">Message</p>
+                  <textarea
+                    name="message"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-700 bg-background-dark focus:border-primary min-h-36 placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal transition-all"
+                    placeholder="Votre message ici..."
+                    required
+                  ></textarea>
+                </label>
+                <button
+                  type="submit"
+                  class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-black text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity"
+                >
+                  <span class="truncate">Envoyer</span>
+                </button>
+              </form>
+            </div>
+
+            <div class="lg:col-span-2">
+              <div class="bg-background-dark rounded-xl p-8 border border-gray-800 h-full">
+                <h3 class="text-2xl font-bold mb-6 relative pb-2">
+                  Retrouvez-moi sur<span class="absolute bottom-0 left-0 h-1 w-16 bg-primary"></span>
+                </h3>
+                <div class="space-y-6">
+                  <a class="flex items-center gap-4 group" href="mailto:dorcasegbende@gmail.com">
+                    <div class="flex-shrink-0 size-12 flex items-center justify-center bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-black transition-all">
+                      <span class="material-symbols-outlined">mail</span>
+                    </div>
+                    <div>
+                      <p class="font-medium text-white">Email</p>
+                      <p class="text-gray-400 group-hover:text-primary transition-colors">dorcasegbende@gmail.com</p>
+                    </div>
+                  </a>
+                  <a class="flex items-center gap-4 group" href="https://www.linkedin.com/in/dorcas-egbende/">
+                    <div class="flex-shrink-0 size-12 flex items-center justify-center bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-black transition-all">
+                      <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="font-medium text-white">LinkedIn</p>
+                      <p class="text-gray-400 group-hover:text-primary transition-colors">/in/dorcas-egbende</p>
+                    </div>
+                  </a>
+                  <a class="flex items-center gap-4 group" href="https://github.com/Egb">
+                    <div class="flex-shrink-0 size-12 flex items-center justify-center bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-black transition-all">
+                      <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.578.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" fill-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="font-medium text-white">GitHub</p>
+                      <p class="text-gray-400 group-hover:text-primary transition-colors">/Egb</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="border-t border-gray-800 mt-10">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 py-6">
+          <p class="text-sm text-gray-400">© 2025 Dorcas Egbende. Tous droits réservés.</p>
+          <div class="flex items-center gap-4">
+            <a class="text-gray-400 hover:text-primary" href="https://www.linkedin.com/in/dorcas-egbende/">
+              <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+              </svg>
+            </a>
+            <a class="text-gray-400 hover:text-primary" href="https://github.com/Egb">
+              <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.578.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" fill-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      <!-- ✅ Script EmailJS + gestion d'envoi -->
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          // ... (ton code toggle/dark mode ici — inchangé)
+          const body = document.body;
+          const toggleDesktop = document.getElementById("theme-toggle-desktop");
+          const toggleMobile = document.getElementById("theme-toggle-mobile");
+          const burgerIcon = document.getElementById("burger-icon");
+          const mobileMenu = document.getElementById("mobile-menu");
+          const toggles = [toggleDesktop, toggleMobile].filter(Boolean);
+
+          const TEXT_DARK = "#ffffff";
+          const TEXT_LIGHT = "#000000";
+
+          function updateHeadingColors(isDarkMode) {
+            const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+            headings.forEach((heading) => {
+              heading.style.color = isDarkMode ? "#ffffff" : "#000000";
+            });
+          }
+
+          const savedTheme = localStorage.getItem("color-theme") || "dark";
+          const isDark = savedTheme === "dark";
+
+          if (isDark) {
+            body.classList.add("bg-background-dark");
+            body.style.color = TEXT_DARK;
+            updateHeadingColors(true);
+          } else {
+            body.classList.remove("bg-background-dark");
+            body.classList.add("bg-background-light");
+            body.style.color = TEXT_LIGHT;
+            updateHeadingColors(false);
+
+            toggles.forEach((toggle) => {
+              toggle.classList.remove("bg-primary");
+              toggle.classList.add("bg-gray-400");
+              const thumb = toggle.querySelector('span[aria-hidden="true"]');
+              thumb.classList.remove("translate-x-5");
+              thumb.classList.add("translate-x-0");
+            });
+
+            if (mobileMenu) {
+              mobileMenu.classList.remove("bg-background-dark", "text-white");
+              mobileMenu.classList.add("bg-background-light", "text-black");
+              mobileMenu.querySelectorAll("a, button").forEach((el) => {
+                if (el.classList.contains("text-white")) el.classList.replace("text-white", "text-black");
+              });
+            }
+          }
+
+          function toggleTheme() {
+            const isCurrentlyDark = body.classList.contains("bg-background-dark");
+            if (isCurrentlyDark) {
+              body.classList.remove("bg-background-dark");
+              body.classList.add("bg-background-light");
+              body.style.color = TEXT_LIGHT;
+              updateHeadingColors(false);
+              toggles.forEach((toggle) => {
+                toggle.classList.remove("bg-primary");
+                toggle.classList.add("bg-gray-400");
+                const thumb = toggle.querySelector('span[aria-hidden="true"]');
+                thumb.classList.remove("translate-x-5");
+                thumb.classList.add("translate-x-0");
+              });
+              localStorage.setItem("color-theme", "light");
+
+              if (mobileMenu) {
+                mobileMenu.classList.remove("bg-background-dark", "text-white");
+                mobileMenu.classList.add("bg-background-light", "text-black");
+                mobileMenu.querySelectorAll("a, button").forEach((el) => {
+                  if (el.classList.contains("text-white")) el.classList.replace("text-white", "text-black");
+                });
+              }
+            } else {
+              body.classList.remove("bg-background-light");
+              body.classList.add("bg-background-dark");
+              body.style.color = TEXT_DARK;
+              updateHeadingColors(true);
+              toggles.forEach((toggle) => {
+                toggle.classList.remove("bg-gray-400");
+                toggle.classList.add("bg-primary");
+                const thumb = toggle.querySelector('span[aria-hidden="true"]');
+                thumb.classList.remove("translate-x-0");
+                thumb.classList.add("translate-x-5");
+              });
+              localStorage.setItem("color-theme", "dark");
+
+              if (mobileMenu) {
+                mobileMenu.classList.remove("bg-background-light", "text-black");
+                mobileMenu.classList.add("bg-background-dark", "text-white");
+                mobileMenu.querySelectorAll("a, button").forEach((el) => {
+                  if (el.classList.contains("text-black")) el.classList.replace("text-black", "text-white");
+                });
+              }
+            }
+          }
+
+          toggles.forEach((toggle) => {
+            toggle.addEventListener("click", toggleTheme);
+          });
+
+          if (burgerIcon && mobileMenu) {
+            burgerIcon.addEventListener("click", () => {
+              const isVisible = mobileMenu.classList.contains("hidden");
+              if (isVisible) {
+                mobileMenu.classList.remove("hidden");
+                burgerIcon.textContent = "close";
+              } else {
+                mobileMenu.classList.add("hidden");
+                burgerIcon.textContent = "menu";
+              }
+            });
+          }
+
+          // Gestion de l'envoi EmailJS
+          document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Bouton de chargement
+            const button = this.querySelector("button[type='submit']");
+            const originalText = button.innerHTML;
+            button.innerHTML = '<span class="truncate">Envoi en cours...</span>';
+            button.disabled = true;
+
+            emailjs.sendForm("service_f58sxl9", "template_xupjbst", this)
+              .then(
+                function () {
+                  alert("✅ Message envoyé avec succès !");
+                  document.getElementById("contact-form").reset();
+                },
+                function (error) {
+                  console.log("Erreur :", error);
+                  alert("❌ Une erreur est survenue. Veuillez réessayer.");
+                }
+              )
+              .finally(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+              });
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
