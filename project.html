@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dorcas Egbende - Développeuse Fullstack &amp; UI/UX Designer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#00B8D4",
+              "background-light": "#ffffff",
+              "background-dark": "#121212",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        transition: background-color 0.3s, color 0.3s;
+      }
+    </style>
+  </head>
+  <body class="font-display">
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <div
+          class="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5"
+        >
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+                <header
+              class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-800 px-2 sm:px-6 py-4"
+            >
+              <div class="flex items-center gap-4 text-white">
+                <div class="size-6 text-primary">
+                  <div class="h-6 w-6">
+                    <img
+                      src="https://res.cloudinary.com/doq50mquo/image/upload/v1762626877/Black_White_Yellow_Simple_Initial_Name_Logo_awrro2.png"
+                      alt="Dorcas Egbende"
+                      class="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+                <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+                  <a class="text-sm font-medium leading-normal text-gray-300 hover:text-primary" href="index.html">Dorcas Egbende</a>
+                </h2>
+              </div>
+              <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+                <div class="flex items-center gap-9">
+                  <a
+                    class="text-sm font-medium leading-normal text-gray-300 hover:text-primary"
+                    href="project.html"
+                    >Mes Projets</a
+                  >
+                  <a
+                    class="text-sm font-medium leading-normal text-gray-300 hover:text-primary"
+                    href="about.html"
+                    >À Propos de moi</a
+                  >
+                  <a
+                    class="text-sm font-medium leading-normal text-gray-300 hover:text-primary"
+                    href="#service"
+                    >Mes Services</a
+                  >
+                </div>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-black text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors"
+                >
+                  <span class="truncate">Contactez-moi</span>
+                </button>
+                <div class="flex items-center">
+                  <button
+                    id="theme-toggle-desktop"
+                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark"
+                    role="switch"
+                    aria-label="Basculer le mode sombre/clair"
+                  >
+                    <span class="sr-only">Use dark mode</span>
+                    <span
+                      aria-hidden="true"
+                      class="pointer-events-none inline-block h-5 w-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 md:hidden">
+                <button
+                  id="theme-toggle-mobile"
+                  class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-dark"
+                  role="switch"
+                  aria-label="Basculer le mode sombre/clair"
+                >
+                  <span class="sr-only">Use dark mode</span>
+                  <span
+                    aria-hidden="true"
+                    class="pointer-events-none inline-block h-5 w-5 translate-x-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                  ></span>
+                </button>
+                <span
+                  id="burger-icon"
+                  class="material-symbols-outlined text-gray-300"
+                  >menu</span
+                >
+              </div>
+                </header>
+
+            <!-- Mobile Menu -->
+                <div
+                id="mobile-menu"
+                class="hidden md:hidden bg-background-dark px-4 py-6 border-t border-gray-800"
+                >
+                <div class="flex flex-col gap-4 text-white">
+                    <a class="text-base font-medium hover:text-primary" href="project.html"
+                    >Mes Projets</a
+                    >
+                    <a class="text-base font-medium hover:text-primary" href="about.html"
+                    >À Propos de moi</a
+                    >
+                    <a class="text-base font-medium hover:text-primary" href="#service"
+                    >Mes Services</a
+                    >
+                    <a href="contact.html"class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-black text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors no-underline">
+                        <span class="truncate">Contactez-moi</span>
+                    </a>
+                </div>
+                </div>
+
+            <main class="flex-grow">
+              <div class="flex flex-wrap justify-between gap-3 p-4 pt-10">
+                <div class="flex min-w-72 flex-col gap-3">
+                  <p
+                    class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]"
+                  >
+                    Mes Projects
+                  </p>
+                  <p
+                    class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal"
+                  >
+                    Une présentation de mon travail en développement, design et stratégie numérique.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-2 p-3 flex-wrap pr-4">
+                <div
+                  class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-4"
+                >
+                  <p class="text-white text-sm font-medium leading-normal">
+                    Tous
+                  </p>
+                </div>
+                <div
+                  class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 pl-4 pr-4"
+                >
+                  <p
+                    class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal"
+                  >
+                    Développement Web et Mobile
+                  </p>
+                </div>
+                <div
+                  class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 pl-4 pr-4"
+                >
+                  <p
+                    class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal"
+                  >
+                    UI/UX Design
+                  </p>
+                </div>
+                <div
+                  class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 pl-4 pr-4"
+                >
+                  <p
+                    class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal"
+                  >
+                    Création de Contenu
+                  </p>
+                </div>
+                <div
+                  class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 pl-4 pr-4"
+                >
+                  <p
+                    class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal"
+                  >
+                    Gestion de Contenu
+                  </p>
+                </div>
+                <div
+                  class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 pl-4 pr-4"
+                >
+                  <p
+                    class="text-gray-800 dark:text-gray-300 text-sm font-medium leading-normal"
+                  >
+                    Consultation Digitale
+                  </p>
+                </div>
+              </div>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4"
+              >
+                <a
+                  class="group flex flex-col gap-3 rounded-lg overflow-hidden bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover overflow-hidden"
+                  >
+                    <div
+                      class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300"
+                      data-alt="Screenshot of an e-commerce website redesign"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpnoOA_cno6-KWfX16yIkZTrppVsj00Zu81zIZdge7JF9MqfQnvs4B1PrswYncMT_RvtL7WXA9SgmAwKrlcFlBp5J_crYvA92i8e-EJPtwqZ7Udr04J3ngrlkOxnrkzR45MJfhCCtzT-1kz6RadKQareh5fOnrqNifwDXRcPOQ7kQX5sEQIQ-R_RH-8YKL6SZvnZ3t5yklf3yhvl000LWUT2x8vi97bGUMZxY8FX9_EakLh3SzhBERsTy8SXniAUQPHdF2xjsqu2-c');
+                      "
+                    ></div>
+                  </div>
+                  <div class="p-4 pt-0">
+                    <p
+                      class="text-gray-900 dark:text-white text-base font-bold leading-normal"
+                    >
+                      E-commerce Platform Redesign
+                    </p>
+                    <p
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      Développement Web et Mobile
+                    </p>
+                  </div>
+                </a>
+                <a
+                  class="group flex flex-col gap-3 rounded-lg overflow-hidden bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover overflow-hidden"
+                  >
+                    <div
+                      class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300"
+                      data-alt="Mockup of a mobile banking application"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3HhsFIDjq4G4mbeN1v50-ed-k4rNdBfQ6oXXVLnPoDIaIta7UAzBJAXEVtJvJWomg_umRDdFnsw49SIf6mfZ9HedCycke-WwxThyXy0VqMQYS3XfeBGLbOkK7eOsKytDLHxalkEu33kEz2r7Pcxns4aYOjb7KzMVrwGr6E6Dt6SlOosi0ghc8n_EGekbJyvQJOYRZLdkT1U6ja4WXQ9RiFw_sfRKWRLYuFSMbCVQUjiuTp5CyPCyZ0a7kw9zFMZs8Z1TSPtfKMNwM');
+                      "
+                    ></div>
+                  </div>
+                  <div class="p-4 pt-0">
+                    <p
+                      class="text-gray-900 dark:text-white text-base font-bold leading-normal"
+                    >
+                      Mobile Banking App
+                    </p>
+                    <p
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      UI/UX Design
+                    </p>
+                  </div>
+                </a>
+                <a
+                  class="group flex flex-col gap-3 rounded-lg overflow-hidden bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover overflow-hidden"
+                  >
+                    <div
+                      class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300"
+                      data-alt="Dashboard interface for a content creator platform"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6bh68DtZQUrQ6eVZcrK_eAWYm5wVnXLKhGdZsy1scCqwVYdYwD4rASpHf-HMAGO7Y8NDXxcz8Dt5r8p0qUi7_lSQ4KqjPGh5iVy9JBmaTPKBiPygmoRKsT5NhPDIkMlQs6DE6h0Ul6WW1SdbjEkn4kCIg2bAZ1eMLxtxcZC7479rPKVtVqVe0mZYN2plReFbg_czZW1XSz8yUN_vaNNmrIP5x5wPQ8MkiDw35mFSdCSFiC_kjmiq_Y2KeMZeAYSqSX0etQwYrBy-9');
+                      "
+                    ></div>
+                  </div>
+                  <div class="p-4 pt-0">
+                    <p
+                      class="text-gray-900 dark:text-white text-base font-bold leading-normal"
+                    >
+                      Content Creator Dashboard
+                    </p>
+                    <p
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      UI/UX Design
+                    </p>
+                  </div>
+                </a>
+                <a
+                  class="group flex flex-col gap-3 rounded-lg overflow-hidden bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover overflow-hidden"
+                  >
+                    <div
+                      class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300"
+                      data-alt="Social media graphics for a digital marketing campaign"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMefyMTzdy6z2wKpiL2WhvUmPUbjMCDPwqebUuxrkjZCEZlwnB8IiKXnokHIuMUAzBfnnEeeYtCcR-wWBk-6O-EuGQpHBsMopl4P-J4bmIxW-UTlmmIwlsKpQNyJUgXj11418YNzDgsslGUMIGSdTiU8ywvngT15ZFMEK8EGNS2fBjDS9z0gU1UmM76TSPPhmthNNydRtbTabNkizjMJyOkGhcwdH8GuIraP3G6tj1uYwwkFnc_RQozAC-HZQkBWBEI7fNlIkZ8qKj');
+                      "
+                    ></div>
+                  </div>
+                  <div class="p-4 pt-0">
+                    <p
+                      class="text-gray-900 dark:text-white text-base font-bold leading-normal"
+                    >
+                      Digital Marketing Campaign Assets
+                    </p>
+                    <p
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      Création de Contenu
+                    </p>
+                  </div>
+                </a>
+                <a
+                  class="group flex flex-col gap-3 rounded-lg overflow-hidden bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover overflow-hidden"
+                  >
+                    <div
+                      class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300"
+                      data-alt="A blog website using a Content Management System"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfizVVK6mwKn6kLFCIxOe_wgjoGNa20J21xDwN-wkPHFUfX52DkunnKIovCNWVs57IuKTyLaNeMjl8M6kuDysIKKapTet9F6bVoLPovoog-MQdRqJyfur8UV449DPDYIn4iw-El93lzJTEV8wlg3xkPTI3ZiUrBUGQImO4Pfo8s__BgaKjgRZLcU3oo06Rswr-b65z62x3WsxJwydmymZOGfNfflRApEB5vRDF5md2QZfStdvFScZKZBTnT81vD7f-L2ddjg0xQbhT');
+                      "
+                    ></div>
+                  </div>
+                  <div class="p-4 pt-0">
+                    <p
+                      class="text-gray-900 dark:text-white text-base font-bold leading-normal"
+                    >
+                      CMS Implementation for Blog
+                    </p>
+                    <p
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      Gestion de Contenu
+                    </p>
+                  </div>
+                </a>
+                <a
+                  class="group flex flex-col gap-3 rounded-lg overflow-hidden bg-white dark:bg-gray-900/50 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover overflow-hidden"
+                  >
+                    <div
+                      class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-105 transition-transform duration-300"
+                      data-alt="A person giving a presentation about technology"
+                      style="
+                        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeo1ljEE3qHtSgzhOb2f84_owWmN4aYyHiucS1Q5Vjo6DSaWpIQrKtdv5JZSUdiLVlPO0_qycDnYGbpjfLF1Gi7I6XHJkC8MvyuWOHu70GR6n5A3nZO9tYwG77ByR3tYwFQZq3nX2eIcKYR66PUZOJ4H3fZt2IMc1RQntrClw7ZR3XfP2aFEYaclxnaQ0i69HXn31XJ0z8IqX_0ZBmycM7PnqVSl9q_L55BBGkQ2hhrdFiNvgeTi-LOerXxYGGSqzN4frJ5FwqaKDL');
+                      "
+                    ></div>
+                  </div>
+                  <div class="p-4 pt-0">
+                    <p
+                      class="text-gray-900 dark:text-white text-base font-bold leading-normal"
+                    >
+                      Startup Tech Consultation
+                    </p>
+                    <p
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      Consultation Digitale
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </main>
+            <footer class="border-t border-gray-800 mt-10">
+              <div
+                class="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 py-6"
+              >
+                <p class="text-sm text-gray-400">
+                  © 2025 Dorcas Egbende. Tous droits réservés.
+                </p>
+                <div class="flex items-center gap-4">
+                  <a class="text-gray-400 hover:text-primary" href="#">
+                    <svg
+                      aria-hidden="true"
+                      class="h-6 w-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a class="text-gray-400 hover:text-primary" href="#">
+                    <svg
+                      aria-hidden="true"
+                      class="h-6 w-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.578.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <!-- JavaScript -->
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const body = document.body;
+          const toggleDesktop = document.getElementById("theme-toggle-desktop");
+          const toggleMobile = document.getElementById("theme-toggle-mobile");
+          const burgerIcon = document.getElementById("burger-icon");
+          const mobileMenu = document.getElementById("mobile-menu");
+          const toggles = [toggleDesktop, toggleMobile].filter(Boolean);
+
+          const TEXT_DARK = "#ffffff";
+          const TEXT_LIGHT = "#000000";
+
+          // Fonction pour mettre à jour la couleur des titres
+          function updateHeadingColors(isDarkMode) {
+            const headings = document.querySelectorAll(
+              "h1, h2, h3, h4, h5, h6"
+            );
+            headings.forEach((heading) => {
+              heading.style.color = isDarkMode ? "#ffffff" : "#000000";
+            });
+          }
+
+          // Charger le thème sauvegardé
+          const savedTheme = localStorage.getItem("color-theme") || "dark";
+          const isDark = savedTheme === "dark";
+
+          if (isDark) {
+            body.classList.add("bg-background-dark");
+            body.style.color = TEXT_DARK;
+            updateHeadingColors(true);
+          } else {
+            body.classList.remove("bg-background-dark");
+            body.classList.add("bg-background-light");
+            body.style.color = TEXT_LIGHT;
+            updateHeadingColors(false);
+
+            // Mettre à jour le switch
+            toggles.forEach((toggle) => {
+              toggle.classList.remove("bg-primary");
+              toggle.classList.add("bg-gray-400");
+              const thumb = toggle.querySelector('span[aria-hidden="true"]');
+              thumb.classList.remove("translate-x-5");
+              thumb.classList.add("translate-x-0");
+            });
+
+            // Mettre à jour le menu mobile
+            if (mobileMenu) {
+              mobileMenu.classList.remove("bg-background-dark", "text-white");
+              mobileMenu.classList.add("bg-background-light", "text-black");
+              mobileMenu.querySelectorAll("a, button").forEach((el) => {
+                if (el.classList.contains("text-white"))
+                  el.classList.replace("text-white", "text-black");
+              });
+            }
+          }
+
+          // Toggle theme
+          function toggleTheme() {
+            const isCurrentlyDark =
+              body.classList.contains("bg-background-dark");
+            if (isCurrentlyDark) {
+              // Mode clair
+              body.classList.remove("bg-background-dark");
+              body.classList.add("bg-background-light");
+              body.style.color = TEXT_LIGHT;
+              updateHeadingColors(false);
+              toggles.forEach((toggle) => {
+                toggle.classList.remove("bg-primary");
+                toggle.classList.add("bg-gray-400");
+                const thumb = toggle.querySelector('span[aria-hidden="true"]');
+                thumb.classList.remove("translate-x-5");
+                thumb.classList.add("translate-x-0");
+              });
+              localStorage.setItem("color-theme", "light");
+
+              if (mobileMenu) {
+                mobileMenu.classList.remove("bg-background-dark", "text-white");
+                mobileMenu.classList.add("bg-background-light", "text-black");
+                mobileMenu.querySelectorAll("a, button").forEach((el) => {
+                  if (el.classList.contains("text-white"))
+                    el.classList.replace("text-white", "text-black");
+                });
+              }
+            } else {
+              // Mode sombre
+              body.classList.remove("bg-background-light");
+              body.classList.add("bg-background-dark");
+              body.style.color = TEXT_DARK;
+              updateHeadingColors(true);
+              toggles.forEach((toggle) => {
+                toggle.classList.remove("bg-gray-400");
+                toggle.classList.add("bg-primary");
+                const thumb = toggle.querySelector('span[aria-hidden="true"]');
+                thumb.classList.remove("translate-x-0");
+                thumb.classList.add("translate-x-5");
+              });
+              localStorage.setItem("color-theme", "dark");
+
+              if (mobileMenu) {
+                mobileMenu.classList.remove(
+                  "bg-background-light",
+                  "text-black"
+                );
+                mobileMenu.classList.add("bg-background-dark", "text-white");
+                mobileMenu.querySelectorAll("a, button").forEach((el) => {
+                  if (el.classList.contains("text-black"))
+                    el.classList.replace("text-black", "text-white");
+                });
+              }
+            }
+          }
+
+          toggles.forEach((toggle) => {
+            toggle.addEventListener("click", toggleTheme);
+          });
+
+          // Menu burger
+          if (burgerIcon && mobileMenu) {
+            burgerIcon.addEventListener("click", () => {
+              const isVisible = mobileMenu.classList.contains("hidden");
+              if (isVisible) {
+                mobileMenu.classList.remove("hidden");
+                burgerIcon.textContent = "close";
+              } else {
+                mobileMenu.classList.add("hidden");
+                burgerIcon.textContent = "menu";
+              }
+            });
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>
